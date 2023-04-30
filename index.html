@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/logica.js">
+    <title>Gatinhos</title>
+</head>
+
+<body>
+    <!-- cabecalho -->
+    <header>
+        <nav class="cabecalho__container">
+            <p class="titulo_principal">Gatinhos</p>
+        </nav>
+        
+            <div class="marquee">
+                <ul class="marquee-content">
+
+                    <li><img src="gato.jpg" />
+                        <li id="descricao">Lorem ipsum dolor sit amet </li>
+                    </li>
+                    
+
+                    <li><img src="gatinho.jpg" />
+                        <li id="descricao">Lorem, ipsum dolor sit amet</li>
+                    </li>
+                    
+
+                    <li><img src="gato_filhote.jpg" />
+                        <li id="descricao">Lorem, ipsum dolor sit amet</li>
+                    </li>
+                    
+                    <li><img src="gatinhos_um.jpg" />
+                        <li id="descricao">Lorem, ipsum dolor sit amet</li>
+                    </li>
+                    
+                </ul>
+        </div>
+       
+        <div class="botao">
+            <button onclick="darkMode()">Iluminação</button>
+        </div>
+
+    </header>
+</body>
+<script>
+    const root = document.documentElement;
+    const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+    const marqueeContent = document.querySelector("ul.marquee-content");
+
+    root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+
+    for (let i = 0; i < marqueeElementsDisplayed; i++) {
+        marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    }
+
+    function darkMode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+</script>
+
+
+</html>
